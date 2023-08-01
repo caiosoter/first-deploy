@@ -12,8 +12,8 @@ colunas = ["tamanho", "ano", "garagem"]
 linear_model = pickle.load(open('.\.\models\modelo.sav', 'rb'))
 
 app = Flask(__name__) # O __name__ faz com que o flask identifique aonde a API está rodando, e ajuda ele encontrar os recursos para rodar a API.
-app.config['BASIC_AUTH_USERNAME'] = 'Caio'
-app.config['BASIC_AUTH_PASSWORD'] = 'alura'
+app.config['BASIC_AUTH_USERNAME'] = os.environ.get('BASIC_AUTH_USERNAME')
+app.config['BASIC_AUTH_PASSWORD'] = os.environ.get('BASIC_AUTH_PASSWORD')
 
 basic_auth = BasicAuth(app)
 
